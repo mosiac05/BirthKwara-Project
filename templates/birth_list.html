@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}All Births{% endblock %}
+{% block page_title %}All Births{% endblock %}
+{% block body_content %}
+
+
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-12">
+                       <div class="card">
+                           <div class="card-body">
+                               <h4 class="card-title">All Births</h4>
+                               <div class="table-responsive">
+                                   <table class="table table-striped table-bordered zero-configuration">
+                                     <thead>
+                                         <tr>
+                                             <th scope="col">Fullname</th>
+                                             <th scope="col">Gender</th>
+                                             <th scope="col">Date of Birth</th>
+                                             <th scope="col">Hospital</th>
+                                             <th scope="col">Action</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                       {% for birth in births %}
+                                         <tr>
+                                             <td>{{ birth.first_name }}, {{ birth.last_name }}</td>
+                                             <td>{{ birth.gender}}</td>
+                                             <td>{{ birth.date_of_birth }}</td>
+                                             <td>{{ birth.hospital.name }}</td>
+                                             <td>
+                                               <span>
+                                                 <a href="{% url 'birth:birth_details' pk=birth.pk %}" data-toggle="tooltip" data-placement="top" title="View Details">
+                                                   <i class="fa fa-eye color-primary m-r-5 btn-sm btn-primary"></i>
+                                                 </a>
+                                                 {% if not user.is_superuser %}
+                                                 <a href="{% url 'birth:birth_update' pk=birth.pk %}" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                   <i class="fa fa-pencil color-warning btn-sm btn-warning"></i>
+                                                 </a>
+                                                 {% endif %}
+                                               </span>
+                                             </td>
+                                         </tr>
+                                      {% endfor %}
+                                     </tbody>
+                                       <tfoot>
+                                         <tr>
+                                           <th scope="col">Fullname</th>
+                                           <th scope="col">Gender</th>
+                                           <th scope="col">Date of Birth</th>
+                                           <th scope="col">Hospital</th>
+                                           <th scope="col">Action</th>
+                                         </tr>
+                                       </tfoot>
+                                   </table>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+{% endblock %}

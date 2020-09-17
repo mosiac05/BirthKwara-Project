@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>BirthKwara | Certificate</title>
+	<style>
+		body {
+  		font-family: verdana;
+  		margin: 0;
+  		text-align: center;
+  		font-size: 25px;
+  		background-image: url("{% static './images/birthkwara_compact.png' %}");
+  	}
+  	/*#1f233c*/
+
+  	body .content {
+  		padding: 10px;
+  		border: 3px dashed #1f233c;
+  		background-color: rgba(234,172,112,0.95);
+  	}
+
+  	h5 {
+  		font-size: 15px;
+  		letter-spacing: 2px;
+  	}
+
+  	h5 .brand {
+  		text-transform: uppercase;
+  		color: #1f233c;
+  		font-size: 20px;
+  		letter-spacing: 4px;
+  	}
+
+  	.title {
+  		font-size: 25px;
+  		text-transform: uppercase;
+  		color: #1f233c;
+  		font-weight: bolder;
+  	}
+
+  	.main {
+  		margin-top: 50px;
+  	}
+
+  	.main h2 {
+  		font-size: 40px;
+  		color: #1f233c;
+  		letter-spacing: 5px;
+  	}
+
+  	.main p {
+  		margin-top: 50px;
+  		padding: 0 100px 0 100px;
+  	}
+
+  	footer {
+  		font-size: 20px;
+  		margin-top: 80px;
+  	}
+
+  	footer .left-sign {
+  		margin-right: 150px;
+  	}
+
+  	footer .right-sign {
+  		margin-left: 150px;
+  	}
+
+  	div .left-label {
+  		font-size: 18px;
+  		margin-right: 240px;
+  	}
+
+  	div .right-label {
+  		font-size: 18px;
+  		margin-left: 150px;
+  	}
+	</style>
+</head>
+<body>
+		<div class="content">
+				<header>
+					<img src="{% static './images/birthkwara_compact.png' %}" class="logo">
+					<h5>
+						<div class="brand">BirthKwara</div>
+						Government House, Ahmadu Bello Way
+						<br>
+						Ilorin, Kwara State
+					</h5>
+				</header>
+				<div class="title">
+					<h1>Birth Certificate</h1>
+				</div>
+				<div class="main">
+					<h5>This is to certify that</h5>
+					<h2>{{ birth_object.first_name }} {{ birth_object.last_name }} {{ birth_object.other_name }}</h2>
+					<p>was born at <br> <u>{{ birth_object.hospital.name }}</u> on <u>{{ birth_object.date_of_birth }}</u> at <u>{{ birth_object.time_of_birth }}</u> weighing in at <u>{{ birth_object.weight }}</u> to parents, <u>Mr. {{ birth_object.father_name }}</u> and <u>Mrs. {{ birth_object.mother_name }}</u>.</p>
+				</div>
+				<footer>
+					<span class="left-sign">
+						<u>{{ birth_object.father_name }}</u>
+					</span>
+					<span class="right-sign">
+						<u>{{ birth_object.mother_name }}</u>
+					</span>
+				</footer>
+				<div>
+					<span class="left-label">
+						Father
+					</span>
+					<span class="right-label">
+						Mother
+					</span>
+				</div>
+		</div>
+</body>
+</html>

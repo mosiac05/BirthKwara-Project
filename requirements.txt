@@ -1,0 +1,7 @@
+folium
+pandas
+django
+psycopg2
+django-all-auth
+argon2
+bcrypt
