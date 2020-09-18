@@ -108,7 +108,8 @@ class BirthForm(forms.Form):
                                 )
                             )
 
-    other_name = forms.CharField(max_length=100,
+    other_name = forms.CharField(required=False,
+                                max_length=100,
                                 widget=forms.TextInput(
                                     attrs={
                                         "placeholder": u"Enter child's other name...",
@@ -153,7 +154,8 @@ class BirthForm(forms.Form):
                                     }
                                 )
                             )
-    email = forms.EmailField(max_length=100,
+    email = forms.EmailField(required=False,
+                            max_length=100,
                             widget=forms.EmailInput(
                                 attrs={
                                     "placeholder": u"Enter home email address...",
