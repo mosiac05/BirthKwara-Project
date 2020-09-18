@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'allauth',
     'allauth.account',
+    'crispy_forms',
 
     'birth_rate_app',
 ]
