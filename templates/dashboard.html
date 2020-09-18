@@ -56,7 +56,7 @@
                           <tbody>
                             {% for birth in births %}
                               <tr>
-                                  <td>{{ birth.first_name }}, {{ birth.last_name }}</td>
+                                  <td>{{ birth.first_name }}, {{ birth.last_name }} {{ birth.other_name }}</td>
                                   <td>{{ birth.gender}}</td>
                                   {% if user.is_superuser %}
                                   <td>{{ birth.hospital.name }}</td>
